@@ -1,0 +1,18 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  name: my-python-app
+spec:
+  source:
+    git:
+      uri: https://github.com/sidnr/ocp-test-app.git  # Replace with your Git repository URL
+    type: Git
+  strategy:
+    dockerStrategy:
+      dockerfilePath: Dockerfile
+    type: Docker
+  output:
+    to:
+      kind: ImageStreamTag
+      name: my-python-app:latest
+
